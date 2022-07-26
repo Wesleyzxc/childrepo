@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Getting hash
         run: |
-          echo "SHORT_SHA=`echo ${{github.sha}} | cut -c1-8`" >> $GITHUB_ENV
+          echo "SHORT_SHA=$(echo ${{github.sha}} | cut -c1-8)" >> $GITHUB_ENV
           echo ${{ env.SHORT_SHA }}
           echo "End of getting hash"
 
