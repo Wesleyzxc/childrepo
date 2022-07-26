@@ -9,12 +9,9 @@ jobs:
     name: Repository Dispatch Event
     steps:
       - name: Getting hash
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
-          echo "$GITHUB_CONTEXT"
-          echo "${{ github.event.pull_request.head.sha }}"
-          echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
+          echo "${{ github.sha }}"
+          echo "SHORT_SHA=`echo ${{github.sha}} | cut -c1-8`" >> $GITHUB_ENV
           echo "$SHORT_SHA"
           echo "$GITHUB_ENV"
           echo "End of getting hash"
