@@ -1,2 +1,2 @@
 initial message
-test parent script with perms
+test parent script 
