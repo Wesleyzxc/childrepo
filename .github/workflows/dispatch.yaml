@@ -12,9 +12,10 @@ jobs:
         run: |
           echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
           echo "$SHORT_SHA"
+          echo "$GITHUB_ENV"
 
       - name: Dispatching hash to parentrepo
         run: |
           curl -XPOST -u "${{ secrets.PAT_USERNAME}}:${{secrets.PAT}}" \
           -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" \
-          https://api.github.com/repos/Wesleyzxc/parentrepo/dispatches --data '{"hash": "$SHORT_SHA"}'
+          https://api.github.com/repos/Wesleyzxc/parentrepo/dispatches --data '{"event_type": "repository_dispatch", "client_payload": {"hash": "$SHORT_SHA"}}'
