@@ -7,10 +7,11 @@ jobs:
   dispatch:
     name: Repository Dispatch Event
     steps:
-      - name: Dispatching hash to parentrepo
+      - name: Getting hash
       - env:
           GITHUB_HASH: ${{ git rev-parse --short "$GITHUB_SHA }}
       - run: echo "Hash is $GITHUB_HASH"
+      - name: Dispatching hash to parentrepo
       - run: |
           curl -XPOST -u "${{ secrets.PAT_USERNAME}}:${{secrets.PAT}}" \
           -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" \
