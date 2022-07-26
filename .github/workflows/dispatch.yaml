@@ -5,6 +5,7 @@ on:
       - main
 jobs:
   dispatch:
+    runs-on: ubuntu-latest
     name: Repository Dispatch Event
     steps:
       - name: Getting hash
