@@ -13,7 +13,7 @@ jobs:
           echo "${{ github.sha }}"
           echo "SHORT_SHA=`echo ${{github.sha}} | cut -c1-8`" >> $GITHUB_ENV
           echo "short sha is ${SHORT_SHA}"
-          echo "short sha with double braces is ${{SHORT_SHA}}"
+          echo "${{github.sha}}" | cut -c1-8
           echo "End of getting hash"
 
       - name: Dispatching hash to parentrepo
