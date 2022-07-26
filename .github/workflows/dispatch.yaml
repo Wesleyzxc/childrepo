@@ -7,9 +7,9 @@ jobs:
   dispatch:
     name: Repository Dispatch Event
     steps:
-      - name: Getting hash
       - env:
           GITHUB_HASH: ${{ git rev-parse --short "$GITHUB_SHA }}
+      - name: Getting hash
       - run: echo "Hash is $GITHUB_HASH"
       - name: Dispatching hash to parentrepo
       - run: |
