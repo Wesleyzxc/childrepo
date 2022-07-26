@@ -8,8 +8,10 @@ jobs:
     name: Repository Dispatch Event
     steps:
       - name: Getting hash
-        run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
-        run: echo "Hash is $SHORT_SHA"
+        run: |
+          echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
+          echo $SHORT_SHA
+
       - name: Dispatching hash to parentrepo
         run: |
           curl -XPOST -u "${{ secrets.PAT_USERNAME}}:${{secrets.PAT}}" \
