@@ -12,9 +12,7 @@ jobs:
         id: hash
         run: |
           echo "::set-output name=sha::$(echo ${{github.sha}} | cut -c1-8)"
-          echo "SHORT_SHA=$(echo ${{github.sha}} | cut -c1-8)" >> $GITHUB_ENV
-          echo ${{ env.SHORT_SHA }}
-          echo "End of getting hash"
+          echo "Short hash is $(echo ${{github.sha}} | cut -c1-8)"
 
       - name: Dispatching hash to parentrepo
         run: |
