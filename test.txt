@@ -1,2 +1,2 @@
 initial message
-test parent script 
+test parent script without commits
