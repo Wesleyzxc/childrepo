@@ -13,6 +13,7 @@ jobs:
           echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
           echo "$SHORT_SHA"
           echo "$GITHUB_ENV"
+          echo "End of getting hash"
 
       - name: Dispatching hash to parentrepo
         run: |
