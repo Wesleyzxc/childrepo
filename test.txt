@@ -1,2 +1,2 @@
 initial message
-test parent script without commits
+test parent script with rules
